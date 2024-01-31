@@ -40,7 +40,7 @@ On some Linux distributions, tkinter might not be installed by default. You can 
 -----------------------------------------------------------------------------------------------------------------------
 
 4) **Install tkinter on macOS:**
-5) 
+
 tkinter is typically included in the default Python installation on macOS. However, if you face any issues, you can use the built-in Python from Terminal:
 
 	[ /usr/bin/python3 -m tkinter ]
