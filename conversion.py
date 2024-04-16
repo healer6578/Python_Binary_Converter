@@ -19,9 +19,8 @@ def binary_to_decimal():
 def binary_to_words():
     try:
         binary_num = input_field.get()
-        decimal_num = int(binary_num, 2)
-        words = convert_to_words(decimal_num)
-        output_label.config(text=f"Decimal: {decimal_num}\nWords: {words}")
+        words = convert_to_words(binary_num)
+        output_label.config(text=f"Words: {words}")
     except ValueError:
         show_error("Invalid input. Please enter a valid binary number.")
 
@@ -33,11 +32,12 @@ def words_to_binary():
     except ValueError:
         show_error("Invalid input. Please enter a valid word representation.")
 
-def convert_to_words(decimal_num):
-    if decimal_num == 0:
-        return "Zero"
-    ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
-    return ones[decimal_num]
+def convert_to_words(binary_num):
+    # Split the binary string into groups of 8 characters
+    chunks = [binary_num[i:i+8] for i in range(0, len(binary_num), 8)]
+    # Convert each 8-bit chunk to its corresponding ASCII character
+    words = ''.join([chr(int(chunk, 2)) for chunk in chunks])
+    return words
 
 def convert_to_binary(words):
     binary_num = ""
